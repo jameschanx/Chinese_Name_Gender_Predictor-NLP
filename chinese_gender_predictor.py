@@ -9,8 +9,11 @@ df = pd.read_csv('ChineseNames.csv')
 p.get_pinyin()
 
 #change headers to english
-print(df.columns)
+df.columns = ['Name', 'Gender']
 
+
+#strip last name
 def strip_last_name(name):
     return name[1:]
 
+df['Name'] = df['Name'].apply(strip_last_name)
